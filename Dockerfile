@@ -23,3 +23,4 @@ RUN cd /tmp && tar -zxvf /tmp/helm-v2.15.2-linux-amd64.tar.gz  \
 RUN helm init --client-only
 RUN helm plugin install https://github.com/chartmuseum/helm-push
 
+ENTRYPOINT ["entrypoint.sh"]
