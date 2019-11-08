@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+
+steps:
+- name: docker-build
+  image: plugins/docker
+  settings:
+    debug: true
+    launch_debug: true
+    insecure: true
+    username: admin
+    password: Wuzhimin123
+    repo: harbor.test.fangyuanyouyue.com/library/drone-helm-push
+    registry: harbor.test.fangyuanyouyue.com
+    tag: latest
