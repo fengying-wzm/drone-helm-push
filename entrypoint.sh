@@ -40,6 +40,4 @@ else
   PASSWORD="--password $PASSWORD"
 fi
 
-helm package $CHART
-
-helm push $CERT $USERNAME $PASSWORD *.tgz $REPO
+helm push $CERT $USERNAME $PASSWORD $CHART $REPO

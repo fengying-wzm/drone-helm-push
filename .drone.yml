@@ -3,14 +3,17 @@ name: default
 type: exec
 
 steps:
-- name: docker-build
-  image: plugins/docker
-  settings:
-    debug: true
-    launch_debug: true
-    insecure: true
-    username: admin
-    password: Wuzhimin123
-    repo: harbor.test.fangyuanyouyue.com/library/drone-helm-push
-    registry: harbor.test.fangyuanyouyue.com
-    tag: latest
+
+  - name: docker_build
+    image: harbor.likeshuo.group/library/docker:latest
+    pull: if-not-exists
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_password
+      repo: harbor.likeshuo.group/library/drone-helm-push
+      registry: harbor.likeshuo.group
+      insecure: true
+      debug: true
+      tag: v1.0
